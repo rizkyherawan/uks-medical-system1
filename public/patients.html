@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Data Pasien | UKS PMR Wira Stemsago</title>
+  <meta name="theme-color" content="#dc1d2b">
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Kumpulan ikon (dipakai lewat <use href="#i-nama">) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></symbol>
+    <symbol id="i-clipboard" viewBox="0 0 24 24"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M9 13h6M9 17h4"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></symbol>
+    <symbol id="i-edit" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="m19 6-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+    <symbol id="i-school" viewBox="0 0 24 24"><path d="m3 10 9-6 9 6"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-6"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></symbol>
+  </svg>
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="UKS PMR Wira Stemsago, ke beranda">
+        <span class="brand-logo"><img src="img/logo-pmi-mark.png" alt="" width="40" height="39"></span>
+        <span class="brand-text">
+          <strong>UKS PMR Wira Stemsago</strong>
+          <small>Sistem rekam medis</small>
+        </span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Buka menu">
+        <svg class="icon i-open" aria-hidden="true"><use href="#i-menu"/></svg>
+        <svg class="icon i-close" aria-hidden="true"><use href="#i-x"/></svg>
+      </button>
+
+      <nav id="site-nav" class="site-nav" aria-label="Navigasi utama">
+        <div class="nav-pill">
+          <a href="index.html#layanan">Layanan</a>
+          <a href="index.html#kegiatan">Kegiatan</a>
+          <a href="index.html#lomba">Hasil lomba</a>
+          <a href="tensi.html">Tensi darah</a>
+        </div>
+        <a class="btn btn-white btn-sm" href="patients.html" aria-current="page">Data pasien</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Beranda</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">Data pasien</span>
+    </nav>
+
+    <!-- ===================== JUDUL HALAMAN ===================== -->
+    <div class="page-head">
+      <span class="badge">Rekam medis</span>
+      <h1>Data Pasien UKS</h1>
+      <p class="lead">Catat siswa yang berobat ke UKS beserta keluhannya, lalu cari, ubah, atau hapus catatan kapan saja.</p>
+
+      <div class="meta-row">
+        <span class="meta-item"><svg class="icon" aria-hidden="true"><use href="#i-users"/></svg>Dikelola <strong>PMR Wira Stemsago</strong></span>
+        <span class="meta-item"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg><span id="today-date">Hari ini</span></span>
+        <span class="meta-item"><svg class="icon" aria-hidden="true"><use href="#i-info"/></svg>Versi beta</span>
+      </div>
+    </div>
+
+    <!-- ===================== RINGKASAN ===================== -->
+    <section class="stats" aria-label="Ringkasan data pasien">
+      <div class="card stat">
+        <span class="stat-icon"><svg class="icon" aria-hidden="true"><use href="#i-clipboard"/></svg></span>
+        <div>
+          <p class="stat-label">Total catatan</p>
+          <p class="stat-value" id="stat-total">-</p>
+        </div>
+      </div>
+      <div class="card stat">
+        <span class="stat-icon"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg></span>
+        <div>
+          <p class="stat-label">Dicatat hari ini</p>
+          <p class="stat-value" id="stat-today">-</p>
+        </div>
+      </div>
+      <div class="card stat">
+        <span class="stat-icon"><svg class="icon" aria-hidden="true"><use href="#i-school"/></svg></span>
+        <div>
+          <p class="stat-label">Kelas paling sering berobat</p>
+          <p class="stat-value" id="stat-class">-</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="workspace">
+
+      <!-- ===================== DAFTAR PASIEN ===================== -->
+      <section class="card list-card" aria-labelledby="list-title">
+        <div class="list-head">
+          <div>
+            <h2 class="card-title" id="list-title">Riwayat pasien</h2>
+            <p class="card-sub" id="result-info" aria-live="polite">Memuat data...</p>
+          </div>
+
+          <div class="toolbar">
+            <div class="search">
+              <label class="sr-only" for="search">Cari catatan</label>
+              <svg class="icon" aria-hidden="true"><use href="#i-search"/></svg>
+              <input class="input" type="search" id="search" placeholder="Cari nama, NISN, keluhan" autocomplete="off">
+            </div>
+            <div>
+              <label class="sr-only" for="class-filter">Filter kelas</label>
+              <select class="select" id="class-filter">
+                <option value="">Semua kelas</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="loading" id="loading" aria-hidden="true">
+          <div class="skeleton"></div>
+          <div class="skeleton"></div>
+          <div class="skeleton"></div>
+        </div>
+
+        <div class="state" id="list-error" role="alert" hidden>
+          <span class="state-icon"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg></span>
+          <h3>Data belum bisa dimuat</h3>
+          <p id="list-error-text"></p>
+          <button type="button" class="btn btn-outline btn-sm" id="retry-btn">Coba lagi</button>
+        </div>
+
+        <div class="table-wrap" id="table-wrap" hidden>
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Pasien</th>
+                <th scope="col">Kelas</th>
+                <th scope="col">Sakit / keluhan</th>
+                <th scope="col">Dicatat</th>
+                <th scope="col"><span class="sr-only">Aksi</span></th>
+              </tr>
+            </thead>
+            <tbody id="patient-rows"></tbody>
+          </table>
+        </div>
+
+        <div class="state" id="empty-state" hidden></div>
+      </section>
+
+      <!-- ===================== FORM TAMBAH / UBAH ===================== -->
+      <aside class="card form-card" id="form-card" aria-labelledby="form-title">
+        <div class="form-head">
+          <h2 class="card-title" id="form-title">
+            <span class="icon-dot"><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></span>
+            <span id="form-title-text">Tambah catatan</span>
+          </h2>
+          <span class="mode-badge" id="mode-badge" hidden>Mode ubah</span>
+        </div>
+
+        <form id="patient-form" novalidate>
+          <input type="hidden" id="patient-id">
+
+          <div class="field">
+            <label for="nama_pasien">Nama pasien</label>
+            <input class="input" type="text" id="nama_pasien" name="nama_pasien" maxlength="100"
+                   autocomplete="off" placeholder="Nama lengkap siswa" aria-describedby="err-nama_pasien" required>
+            <p class="field-error" id="err-nama_pasien" hidden></p>
+          </div>
+
+          <div class="field">
+            <label for="nisn">NISN</label>
+            <input class="input" type="text" id="nisn" name="nisn" inputmode="numeric" maxlength="10"
+                   autocomplete="off" placeholder="10 digit angka" aria-describedby="err-nisn" required>
+            <p class="field-error" id="err-nisn" hidden></p>
+          </div>
+
+          <div class="field">
+            <label for="kelas">Kelas</label>
+            <input class="input" type="text" id="kelas" name="kelas" maxlength="20"
+                   autocomplete="off" placeholder="Contoh: XI IPA 2" aria-describedby="err-kelas" required>
+            <p class="field-error" id="err-kelas" hidden></p>
+          </div>
+
+          <div class="field">
+            <label for="keluhan">Sakit / keluhan</label>
+            <div class="chips" role="group" aria-label="Keluhan umum">
+              <button type="button" class="chip" data-text="Pusing">Pusing</button>
+              <button type="button" class="chip" data-text="Sakit perut">Sakit perut</button>
+              <button type="button" class="chip" data-text="Demam">Demam</button>
+              <button type="button" class="chip" data-text="Batuk/pilek">Batuk/pilek</button>
+              <button type="button" class="chip" data-text="Mual">Mual</button>
+              <button type="button" class="chip" data-text="Lemas">Lemas</button>
+              <button type="button" class="chip" data-text="Luka ringan">Luka ringan</button>
+            </div>
+            <textarea class="textarea" id="keluhan" name="keluhan" maxlength="1000"
+                      placeholder="Tulis keluhan atau pilih dari daftar di atas" aria-describedby="err-keluhan" required></textarea>
+            <div class="field-meta">
+              <span id="err-keluhan" class="field-error" hidden></span>
+              <span id="keluhan-count">0/1000</span>
+            </div>
+          </div>
+
+          <div class="form-error" id="form-error" role="alert" hidden></div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary" id="submit-btn">
+              <svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>
+              <span id="submit-label">Simpan catatan</span>
+            </button>
+            <button type="button" class="btn btn-outline" id="cancel-btn" hidden>Batal</button>
+          </div>
+        </form>
+      </aside>
+
+    </div>
+  </main>
+
+  <footer class="site-footer" data-site-footer></footer>
+
+  <!-- Tombol melayang (tampil di layar kecil) -->
+  <div class="fab-stack">
+    <a class="fab fab-add" href="#form-card" data-label="Tambah catatan" aria-label="Ke formulir tambah catatan">
+      <svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg>
+    </a>
+  </div>
+
+  <!-- ===================== DIALOG HAPUS ===================== -->
+  <dialog id="confirm-dialog" aria-labelledby="confirm-title">
+    <div class="dialog-icon"><svg class="icon" aria-hidden="true"><use href="#i-trash"/></svg></div>
+    <h2 id="confirm-title">Hapus catatan?</h2>
+    <p>Catatan atas nama <strong id="confirm-name"></strong> akan dihapus permanen dan tidak bisa dikembalikan.</p>
+    <div class="dialog-actions">
+      <button type="button" class="btn btn-outline" id="confirm-no">Batal</button>
+      <button type="button" class="btn btn-primary" id="confirm-yes">Hapus catatan</button>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/api.js"></script>
+  <script src="js/site-data.js"></script>
+  <script src="js/footer.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/patients.js"></script>
+</body>
+</html>

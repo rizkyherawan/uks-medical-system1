@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UKS PMR Wira SMKN 1 Gombong</title>
+  <meta name="description" content="Sistem rekam medis digital UKS PMR Wira SMKN 1 Gombong.">
+  <meta name="theme-color" content="#dc1d2b">
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Kumpulan ikon (dipakai lewat <use href="#i-nama">) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="i-school" viewBox="0 0 24 24"><path d="m3 10 9-6 9 6"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></symbol>
+    <symbol id="i-clipboard" viewBox="0 0 24 24"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M9 13h6M9 17h4"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></symbol>
+    <symbol id="i-edit" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+    <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></symbol>
+    <symbol id="i-trophy" viewBox="0 0 24 24"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4Z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></symbol>
+    <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></symbol>
+    <symbol id="i-activity" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></symbol>
+  </svg>
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="UKS PMR Wira SMKN 1 Gombong, ke beranda">
+        <span class="brand-logo"><img src="img/logo-pmi-mark.png" alt="" width="40" height="39"></span>
+        <span class="brand-text">
+          <strong>UKS PMR Wira SMKN 1 Gombong</strong>
+          <small>Sistem rekam medis</small>
+        </span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Buka menu">
+        <svg class="icon i-open" aria-hidden="true"><use href="#i-menu"/></svg>
+        <svg class="icon i-close" aria-hidden="true"><use href="#i-x"/></svg>
+      </button>
+
+      <nav id="site-nav" class="site-nav" aria-label="Navigasi utama">
+        <div class="nav-pill">
+          <a href="#layanan">Layanan</a>
+          <a href="#kegiatan">Kegiatan</a>
+          <a href="#lomba">Hasil lomba</a>
+          <a href="tensi.html">Tensi darah</a>
+        </div>
+        <a class="btn btn-white btn-sm" href="patients.html">Data pasien sakit</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===================== HERO ===================== -->
+    <section class="hero">
+      <div class="container hero-grid">
+
+        <div class="hero-copy">
+          <span class="badge">Rekam medis digital</span>
+          <h1>UKS PMR Wira SMKN 1 Gombong</h1>
+          <p class="lead">
+            Sistem rekam medis digital untuk Unit Kesehatan Sekolah. Catat siswa yang
+            berobat, temukan riwayatnya dalam hitungan detik, dan tinggalkan buku catatan manual.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="patients.html">Buka data pasien sakit</a>
+            <a class="btn btn-outline" href="#kegiatan">Lihat kegiatan</a>
+          </div>
+
+          <div class="meta-row">
+            <span class="meta-item"><svg class="icon" aria-hidden="true"><use href="#i-users"/></svg><strong>PMR Wira</strong></span>
+            <span class="meta-item"><svg class="icon" aria-hidden="true"><use href="#i-school"/></svg>Unit Kesehatan Sekolah</span>
+            <span class="meta-item"><svg class="icon" aria-hidden="true"><use href="#i-info"/></svg>Versi beta</span>
+          </div>
+        </div>
+
+        <!-- Panel visual: ganti isi panel ini dengan <img> foto UKS/PMR bila sudah ada -->
+        <div class="hero-visual">
+          <div class="logo-card">
+            <img src="img/logo-pmi.png" alt="Logo Palang Merah Indonesia" width="1483" height="600">
+          </div>
+
+          <div class="visual-note" aria-label="Contoh catatan pasien">
+            <p class="visual-note-title"><svg class="icon" aria-hidden="true"><use href="#i-clipboard"/></svg>Contoh catatan</p>
+            <dl>
+              <div><dt>Nama pasien</dt><dd>Nama siswa</dd></div>
+              <div><dt>NISN</dt><dd>0012345678</dd></div>
+              <div><dt>Kelas</dt><dd>XI IPA 2</dd></div>
+              <div><dt>Sakit / keluhan</dt><dd>Pusing sejak pagi</dd></div>
+            </dl>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===================== LAYANAN ===================== -->
+    <section class="section" id="layanan">
+      <div class="container about-grid">
+
+        <div>
+          <div class="section-head">
+            <h2>Pencatatan UKS jadi lebih ringkas</h2>
+            <p>Semua data kunjungan pasien tersimpan di satu tempat dan bisa dibuka kapan saja oleh petugas PMR.</p>
+          </div>
+
+          <ul class="feature-list">
+            <li class="feature">
+              <span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-clipboard"/></svg></span>
+              <div>
+                <h3>Catat kunjungan</h3>
+                <p>Isi nama pasien, NISN, kelas, dan keluhan dalam satu formulir singkat.</p>
+              </div>
+            </li>
+            <li class="feature">
+              <span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg></span>
+              <div>
+                <h3>Cari dalam sekejap</h3>
+                <p>Temukan riwayat berobat siswa berdasarkan nama, NISN, kelas, atau keluhan.</p>
+              </div>
+            </li>
+            <li class="feature">
+              <span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-edit"/></svg></span>
+              <div>
+                <h3>Ubah dan hapus data</h3>
+                <p>Perbaiki salah ketik atau hapus catatan yang tidak diperlukan kapan saja.</p>
+              </div>
+            </li>
+            <li class="feature">
+              <span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-activity"/></svg></span>
+              <div>
+                <h3>Cek tensi darah</h3>
+                <p>Masukkan hasil tensi anggota PMR dan lihat kategori serta anjurannya langsung, dari hipotensi sampai krisis hipertensi.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <aside class="card card-pad info-card" aria-labelledby="info-title">
+          <h3 class="card-title" id="info-title">
+            <span class="icon-dot"><svg class="icon" aria-hidden="true"><use href="#i-info"/></svg></span>
+            Informasi sistem
+          </h3>
+          <dl>
+            <div class="info-row"><dt>Jenis sistem</dt><dd>Rekam medis digital</dd></div>
+            <div class="info-row"><dt>Pengelola</dt><dd>PMR Wira SMKN 1 Gombong</dd></div>
+            <div class="info-row"><dt>Data yang dicatat</dt><dd>Nama, NISN, kelas, dan keluhan</dd></div>
+            <div class="info-row"><dt>Status</dt><dd><span class="status-pill">Versi beta</span></dd></div>
+          </dl>
+        </aside>
+
+      </div>
+    </section>
+
+    <!-- =====================================================
+         KEGIATAN PMR
+         Kartu diisi otomatis dari KEGIATAN di js/site-data.js.
+         Untuk menambah kegiatan atau memasang foto, edit file itu.
+         ===================================================== -->
+    <section class="section" id="kegiatan">
+      <div class="container">
+        <div class="section-head">
+          <h2>Kegiatan PMR Wira</h2>
+          <p>Dokumentasi kegiatan anggota PMR Wira sepanjang tahun ajaran.</p>
+        </div>
+
+        <div class="activity-grid" id="kegiatan-grid"></div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         HASIL LOMBA
+         Baris diisi otomatis dari LOMBA di js/site-data.js.
+         ===================================================== -->
+    <section class="section" id="lomba">
+      <div class="container">
+        <div class="section-head">
+          <h2>Hasil lomba</h2>
+          <p>Prestasi anggota PMR Wira di berbagai perlombaan.</p>
+        </div>
+
+        <div class="card">
+          <ul class="result-list" id="lomba-list"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== AJAKAN ===================== -->
+    <section class="section">
+      <div class="container">
+        <div class="cta-band">
+          <div>
+            <h2>Mulai catat pasien UKS</h2>
+            <p>Buka halaman data pasien untuk menambahkan catatan pertama.</p>
+          </div>
+          <a class="btn btn-white" href="patients.html">Buka data pasien</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer" data-site-footer></footer>
+
+  <!-- Tombol melayang -->
+  <div class="fab-stack">
+    <button class="fab fab-top" type="button" data-label="Kembali ke atas" aria-label="Kembali ke atas">
+      <svg class="icon" aria-hidden="true"><use href="#i-arrow-up"/></svg>
+    </button>
+    <a class="fab" href="patients.html" data-label="Data pasien" aria-label="Buka data pasien">
+      <svg class="icon" aria-hidden="true"><use href="#i-clipboard"/></svg>
+    </a>
+  </div>
+
+  <script src="js/site-data.js"></script>
+  <script src="js/footer.js"></script>
+  <script src="js/landing.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

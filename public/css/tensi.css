@@ -1,0 +1,418 @@
+/* ============================================================
+   Halaman Tensi Darah (dimuat setelah style.css)
+   Warna kategori memakai warna status agar mudah dibedakan:
+   biru (rendah), hijau (normal), kuning, oranye, merah, merah tua.
+   ============================================================ */
+
+:root {
+  --cat-hipotensi-bg: #e6f0ff;
+  --cat-hipotensi-fg: #1c4aa6;
+  --cat-hipotensi-line: #bfd5fa;
+
+  --cat-normal-bg: #e4f6ec;
+  --cat-normal-fg: #15693b;
+  --cat-normal-line: #b9e3c9;
+
+  --cat-prehipertensi-bg: #fff3d1;
+  --cat-prehipertensi-fg: #7a5000;
+  --cat-prehipertensi-line: #f2da96;
+
+  --cat-hipertensi1-bg: #ffe6d1;
+  --cat-hipertensi1-fg: #964200;
+  --cat-hipertensi1-line: #f5c79d;
+
+  --cat-hipertensi2-bg: #ffd9dc;
+  --cat-hipertensi2-fg: #a30f1a;
+  --cat-hipertensi2-line: #f2a8af;
+
+  --cat-krisis-bg: #7d0b14;
+  --cat-krisis-fg: #ffffff;
+  --cat-krisis-line: #7d0b14;
+}
+
+.stack {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr); /* kartu tidak boleh lebih lebar dari kolomnya */
+  gap: 1.5rem;
+  min-width: 0;
+}
+
+/* ---------- Badge & titik kategori ---------- */
+
+.cat-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.cat-dot {
+  display: inline-block;
+  width: 0.6rem;
+  height: 0.6rem;
+  margin-right: 0.4rem;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
+.cat-hipotensi { background: var(--cat-hipotensi-bg); border-color: var(--cat-hipotensi-line); color: var(--cat-hipotensi-fg); }
+.cat-normal { background: var(--cat-normal-bg); border-color: var(--cat-normal-line); color: var(--cat-normal-fg); }
+.cat-prehipertensi { background: var(--cat-prehipertensi-bg); border-color: var(--cat-prehipertensi-line); color: var(--cat-prehipertensi-fg); }
+.cat-hipertensi1 { background: var(--cat-hipertensi1-bg); border-color: var(--cat-hipertensi1-line); color: var(--cat-hipertensi1-fg); }
+.cat-hipertensi2 { background: var(--cat-hipertensi2-bg); border-color: var(--cat-hipertensi2-line); color: var(--cat-hipertensi2-fg); }
+.cat-krisis { background: var(--cat-krisis-bg); border-color: var(--cat-krisis-line); color: var(--cat-krisis-fg); }
+
+.cat-dot.cat-hipotensi { background: var(--cat-hipotensi-fg); }
+.cat-dot.cat-normal { background: var(--cat-normal-fg); }
+.cat-dot.cat-prehipertensi { background: #d99a00; }
+.cat-dot.cat-hipertensi1 { background: #e06a00; }
+.cat-dot.cat-hipertensi2 { background: #d4222f; }
+.cat-dot.cat-krisis { background: var(--cat-krisis-bg); }
+
+/* ---------- Form: pengukuran ke- & input angka ---------- */
+
+fieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+legend {
+  display: block;
+  margin-bottom: 0.4rem;
+  padding: 0;
+  font-size: 0.925rem;
+  font-weight: 700;
+}
+
+.segmented {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.4rem;
+  padding: 0.3rem;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-control);
+  background: var(--paper);
+}
+
+.segmented label {
+  position: relative;
+  margin: 0;
+  cursor: pointer;
+}
+
+.segmented input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.segmented span {
+  display: block;
+  padding: 0.55rem 0.5rem;
+  border-radius: 9px;
+  color: var(--ink-soft);
+  font-weight: 700;
+  text-align: center;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.segmented input:checked + span {
+  background: var(--red-500);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(220, 29, 43, 0.35);
+}
+
+.segmented input:focus-visible + span {
+  outline: 3px solid var(--red-200);
+  outline-offset: 2px;
+}
+
+.bp-inputs {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  gap: 0.6rem;
+  align-items: start;
+}
+
+.bp-input {
+  min-height: 3.5rem;
+  font-size: 1.6rem;
+  font-weight: 800;
+  text-align: center;
+  letter-spacing: -0.01em;
+}
+
+.bp-slash {
+  padding-top: 0.25rem;
+  color: var(--ink-soft);
+  font-size: 2.2rem;
+  font-weight: 300;
+  line-height: 1.3;
+}
+
+.bp-cap {
+  display: block;
+  margin-top: 0.35rem;
+  color: var(--ink-soft);
+  font-size: 0.78rem;
+  text-align: center;
+}
+
+.field-hint {
+  margin-top: 0.4rem;
+  color: var(--ink-soft);
+  font-size: 0.825rem;
+}
+
+/* ---------- Panel hasil klasifikasi langsung ---------- */
+
+.bp-result {
+  margin-top: 1.25rem;
+  padding: 1.1rem 1.2rem;
+  border: 1px solid var(--line-strong);
+  border-left-width: 5px;
+  border-radius: 16px;
+  background: var(--paper);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.bp-result-empty {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--ink-soft);
+  font-size: 0.925rem;
+}
+
+.bp-result-empty .icon {
+  color: var(--red-600);
+}
+
+.bp-result-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+}
+
+.bp-result-value {
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.bp-result-value small {
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.bp-result-range {
+  margin-top: 0.4rem;
+  color: var(--ink-soft);
+  font-size: 0.875rem;
+}
+
+.bp-result-note {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(29, 35, 49, 0.12);
+  font-size: 0.925rem;
+  line-height: 1.65;
+}
+
+.bp-result-note strong {
+  display: block;
+  margin-bottom: 0.2rem;
+  font-size: 0.85rem;
+}
+
+.bp-result[data-cat="hipotensi"] { border-color: var(--cat-hipotensi-line); border-left-color: var(--cat-hipotensi-fg); background: #f4f8ff; }
+.bp-result[data-cat="normal"] { border-color: var(--cat-normal-line); border-left-color: var(--cat-normal-fg); background: #f2fbf6; }
+.bp-result[data-cat="prehipertensi"] { border-color: var(--cat-prehipertensi-line); border-left-color: #d99a00; background: #fffaea; }
+.bp-result[data-cat="hipertensi1"] { border-color: var(--cat-hipertensi1-line); border-left-color: #e06a00; background: #fff6ee; }
+.bp-result[data-cat="hipertensi2"] { border-color: var(--cat-hipertensi2-line); border-left-color: #d4222f; background: #fff1f2; }
+.bp-result[data-cat="krisis"] { border-color: var(--cat-krisis-bg); border-left-color: var(--cat-krisis-bg); background: #fff1f2; }
+
+.bp-result[data-cat="error"] {
+  border-color: var(--red-200);
+  border-left-color: var(--red-500);
+  background: var(--red-50);
+  color: var(--red-800);
+}
+
+/* ---------- Tabel: nilai tensi & ringkasan ---------- */
+
+.bp-value {
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.bp-value small {
+  display: block;
+  color: var(--ink-soft);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.bp-unit {
+  color: var(--ink-soft);
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.bp-empty {
+  color: var(--ink-soft);
+}
+
+.progress-pill {
+  display: inline-block;
+  margin-top: 0.2rem;
+  color: var(--ink-soft);
+  font-size: 0.78rem;
+}
+
+.progress-pill.is-complete {
+  color: var(--cat-normal-fg);
+  font-weight: 700;
+}
+
+.card-sub-block {
+  margin-bottom: 1.1rem;
+}
+
+/* ---------- Panduan kategori ---------- */
+
+.guide {
+  margin-top: 3.5rem;
+}
+
+.guide .section-head {
+  margin-bottom: 1.75rem;
+}
+
+.guide-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.guide-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.4rem;
+}
+
+.guide-card h3 {
+  font-size: 1.05rem;
+}
+
+.guide-range {
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+}
+
+.guide-range strong {
+  color: var(--ink);
+}
+
+.guide-note {
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.925rem;
+  line-height: 1.65;
+}
+
+.guide-note strong {
+  display: block;
+  margin-bottom: 0.2rem;
+  font-size: 0.85rem;
+}
+
+.disclaimer {
+  display: flex;
+  gap: 0.9rem;
+  align-items: flex-start;
+  margin-top: 1.5rem;
+  padding: 1.1rem 1.3rem;
+  border: 1px solid var(--red-200);
+  border-radius: 16px;
+  background: var(--red-50);
+  color: var(--red-800);
+  font-size: 0.925rem;
+  line-height: 1.65;
+}
+
+.disclaimer .icon {
+  width: 1.4rem;
+  height: 1.4rem;
+  margin-top: 0.1rem;
+  color: var(--red-600);
+}
+
+/* ---------- Responsif ---------- */
+
+@media (max-width: 1040px) {
+  .guide-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .guide-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .bp-value small {
+    display: inline;
+    margin-left: 0.4rem;
+  }
+}
+
+/* Sel rata-rata di tabel ringkasan */
+.avg-cell {
+  display: grid;
+  gap: 0.35rem;
+  justify-items: start;
+}
+
+/* Kolom aksi tetap terlihat saat tabel digeser ke samping (layar sempit) */
+@media (min-width: 721px) {
+  #reading-rows td.cell-actions,
+  #table-wrap thead th:last-child {
+    position: sticky;
+    right: 0;
+    background: var(--surface);
+    box-shadow: -10px 0 10px -10px rgba(29, 35, 49, 0.18);
+  }
+
+  #reading-rows tr.is-editing td.cell-actions {
+    background: var(--red-50);
+  }
+
+  #table-wrap thead th:last-child {
+    background: var(--paper);
+  }
+}
+
+/* Tabel di kolom kiri lebih rapat supaya semua kolom (termasuk aksi) muat di desktop */
+@media (min-width: 721px) {
+  .stack th,
+  .stack td {
+    padding-inline: 0.5rem;
+  }
+}
